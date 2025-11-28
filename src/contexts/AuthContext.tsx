@@ -19,6 +19,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // 🔹 Debug: Check if Firebase env variables are available
+    console.log("Firebase API Key:", process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
+
     // Ensure auth is not null
     if (!auth) {
       console.error("Firebase auth is not initialized.");
@@ -42,4 +45,5 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useAuth = () => useContext(AuthContext);
+
 
